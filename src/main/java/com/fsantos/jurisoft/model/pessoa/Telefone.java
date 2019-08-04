@@ -1,4 +1,4 @@
-package com.fsantos.jurisoft.model.Pessoa;
+package com.fsantos.jurisoft.model.pessoa;
 
 import lombok.*;
 
@@ -11,15 +11,14 @@ import java.util.UUID;
 
 @Entity @Data
 @NoArgsConstructor @AllArgsConstructor
-public class Email {
+public class Telefone {
 
     @Id @GeneratedValue
     private UUID id;
     private String descricao;
-    private String endereco;
+    private String numero;
 
     @ManyToOne
-    @JoinColumn(name = "pessoa_id")
+    @JoinColumn(name = "pessoa_id", nullable = false)
     private Pessoa pessoa;
-
 }

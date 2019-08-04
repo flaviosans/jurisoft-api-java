@@ -1,5 +1,6 @@
-package com.fsantos.jurisoft.model.Pessoa;
+package com.fsantos.jurisoft.model.pessoa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -11,16 +12,16 @@ import java.util.UUID;
 
 @Entity @Data
 @NoArgsConstructor @AllArgsConstructor
-public class Telefone {
+public class Email {
 
     @Id @GeneratedValue
     private UUID id;
     private String descricao;
-    private String numero;
+    private String endereco;
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
+    @JsonIgnore
     private Pessoa pessoa;
-
 
 }
