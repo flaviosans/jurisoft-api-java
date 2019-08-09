@@ -6,7 +6,6 @@ drop table if exists cidade;
 drop table if exists estado;
 drop table if exists endereco;
 drop table if exists pessoa;
-
 drop table if exists processo;
 drop table if exists pergunta;
 drop table if exists alternativa;
@@ -21,7 +20,8 @@ create table pessoa(
                        pis varchar(55),
                        profissao varchar(55),
                        data_de_nascimento timestamp not null,
-                       sexo varchar(25)
+                       sexo varchar(25),
+                       deleted boolean default false
 );
 
 create table endereco(

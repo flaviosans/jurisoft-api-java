@@ -4,14 +4,18 @@ import com.fsantos.jurisoft.enumerable.Sexo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity @Data
-@NoArgsConstructor @AllArgsConstructor
+@Entity
+@Where(clause = "deleted = false")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pessoa {
 
     @Id @GeneratedValue
@@ -26,11 +30,13 @@ public class Pessoa {
     private String pis;
     private String profissao;
     private LocalDate dataDeNascimento;
+    private boolean deleted;
 
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
-/*    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+/*
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Endereco> enderecos = new HashSet<>();
 

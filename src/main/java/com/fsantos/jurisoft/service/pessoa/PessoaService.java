@@ -55,7 +55,9 @@ public class PessoaService {
         if(!pessoa.isPresent()){
             throw new ResourceNotFoundException("Recurso " + id + " a ser deletado não encontrado");
         }
-        _pessoaRepository.delete(pessoa.get());
+        Pessoa p = pessoa.get();
+        p.setDeleted(true);
+        _pessoaRepository.save(p);
     }
 
     public boolean existsById(UUID pessoaId) throws ResourceNotFoundException {

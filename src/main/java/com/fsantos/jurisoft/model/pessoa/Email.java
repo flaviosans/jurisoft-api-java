@@ -23,5 +23,4 @@ public class Email {
     @JoinColumn(name = "pessoa_id")
     @JsonIgnore
     private Pessoa pessoa;
-
 }

@@ -40,10 +40,9 @@ public class PessoaController {
         return _pessoaService.update(pessoaId, pessoa);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{pessoaId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(UUID id) throws ResourceNotFoundException {
-        _pessoaService.delete(id);
+    public void delete(@PathVariable UUID pessoaId) throws ResourceNotFoundException {
+        _pessoaService.delete(pessoaId);
     }
-
 }
