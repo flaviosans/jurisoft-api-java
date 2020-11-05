@@ -20,7 +20,7 @@ create table pessoa(
                        pis varchar(55),
                        profissao varchar(55),
                        data_de_nascimento timestamp not null,
-                       sexo varchar(25),
+                       genero varchar(25),
                        deleted boolean default false
 );
 

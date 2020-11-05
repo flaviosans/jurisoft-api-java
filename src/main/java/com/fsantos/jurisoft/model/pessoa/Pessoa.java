@@ -1,6 +1,6 @@
 package com.fsantos.jurisoft.model.pessoa;
 
-import com.fsantos.jurisoft.enumerable.Sexo;
+import com.fsantos.jurisoft.enumerable.Genero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,7 +33,7 @@ public class Pessoa {
     private boolean deleted;
 
     @Enumerated(EnumType.STRING)
-    private Sexo sexo;
+    private Genero genero;
 
 /*
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)

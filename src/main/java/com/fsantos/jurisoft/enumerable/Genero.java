@@ -1,6 +1,6 @@
 package com.fsantos.jurisoft.enumerable;
 
-public enum Sexo {
+public enum Genero {
     MASCULINO,
     FEMININO,
     OUTRO

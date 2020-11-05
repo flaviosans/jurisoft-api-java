@@ -16,34 +16,34 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:4200")
 public class EnderecoController {
     @Autowired
-    private PessoaService _pessoaService;
+    private PessoaService pessoaService;
 
     @Autowired
-    private EnderecoService _enderecoService;
+    private EnderecoService enderecoService;
 
     @GetMapping
     public Set<Endereco> getEnderecos(@PathVariable UUID pessoaId) throws ResourceNotFoundException {
-        return _enderecoService.get(pessoaId);
+        return enderecoService.get(pessoaId);
     }
 
     @GetMapping("/{enderecoId}")
     public Endereco getEndereco(@PathVariable UUID pessoaId,@PathVariable UUID enderecoId) throws ResourceNotFoundException {
-        return _enderecoService.get(pessoaId, enderecoId);
+        return enderecoService.get(pessoaId, enderecoId);
     }
 
     @PostMapping
     public Endereco create(@PathVariable UUID pessoaId, @RequestBody Endereco endereco) throws ResourceNotFoundException {
-        return _enderecoService.save(pessoaId, endereco);
+        return enderecoService.save(pessoaId, endereco);
     }
 
     @PutMapping("/{enderecoId}")
     public Endereco update(@PathVariable UUID pessoaId, @PathVariable UUID enderecoId, @RequestBody Endereco endereco) throws ResourceNotFoundException {
-        return _enderecoService.update(pessoaId, enderecoId, endereco);
+        return enderecoService.update(pessoaId, enderecoId, endereco);
     }
 
     @DeleteMapping("/{enderecoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable UUID pessoaId, @PathVariable UUID enderecoId) throws ResourceNotFoundException{
-        _enderecoService.delete(pessoaId, enderecoId);
+        enderecoService.delete(pessoaId, enderecoId);
     }
 }

@@ -17,32 +17,32 @@ import java.util.UUID;
 public class PessoaController {
 
     @Autowired
-    private PessoaService _pessoaService;
+    private PessoaService pessoaService;
 
     @GetMapping
     public Page<Pessoa> getPessoas(Pageable page){
-        return _pessoaService.get(page);
+        return pessoaService.get(page);
     }
 
     @GetMapping("/{pessoaId}")
     public Pessoa getPessoa(@PathVariable UUID pessoaId) throws ResourceNotFoundException {
-        return _pessoaService.get(pessoaId);
+        return pessoaService.get(pessoaId);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Pessoa create(@RequestBody Pessoa pessoa){
-        return _pessoaService.save(pessoa);
+        return pessoaService.save(pessoa);
     }
 
     @PutMapping("/{pessoaId}")
     public Pessoa update(@PathVariable UUID pessoaId, @RequestBody Pessoa pessoa) throws ResourceNotFoundException{
-        return _pessoaService.update(pessoaId, pessoa);
+        return pessoaService.update(pessoaId, pessoa);
     }
 
     @DeleteMapping("/{pessoaId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable UUID pessoaId) throws ResourceNotFoundException {
-        _pessoaService.delete(pessoaId);
+        pessoaService.delete(pessoaId);
     }
 }

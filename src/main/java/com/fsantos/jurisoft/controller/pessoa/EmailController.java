@@ -14,31 +14,31 @@ import java.util.UUID;
 @RequestMapping("/pessoa/{pessoaId}/email")
 public class EmailController {
     @Autowired
-    private EmailService _emailService;
+    private EmailService emailService;
 
     @GetMapping
     public Set<Email> getEmails(@PathVariable UUID pessoaId) throws ResourceNotFoundException{
-        return _emailService.get(pessoaId);
+        return emailService.get(pessoaId);
     }
 
     @GetMapping("/{emailId}")
     public Email getEmail(@PathVariable UUID pessoaId, @PathVariable UUID emailId) throws ResourceNotFoundException{
-        return _emailService.get(pessoaId, emailId);
+        return emailService.get(pessoaId, emailId);
     }
 
     @PostMapping
     public Email create(@PathVariable UUID pessoaId, @RequestBody Email email) throws ResourceNotFoundException{
-        return _emailService.save(pessoaId, email);
+        return emailService.save(pessoaId, email);
     }
 
     @PutMapping("/{emailId}")
     public Email update(@PathVariable UUID pessoaId, @PathVariable UUID emailId, @RequestBody Email email) throws ResourceNotFoundException{
-        return _emailService.update(pessoaId, emailId, email);
+        return emailService.update(pessoaId, emailId, email);
     }
 
     @DeleteMapping("/{emailId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable UUID pessoaId, @PathVariable UUID emailId) throws ResourceNotFoundException{
-        _emailService.delete(pessoaId, emailId);
+        emailService.delete(pessoaId, emailId);
     }
 }

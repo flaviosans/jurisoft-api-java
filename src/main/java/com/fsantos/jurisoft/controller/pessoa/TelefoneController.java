@@ -16,31 +16,31 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TelefoneController {
     @Autowired
-    private TelefoneService _telefoneService;
+    private TelefoneService telefoneService;
 
     @GetMapping
     public Set<Telefone> getTelefones(@PathVariable UUID pessoaId) throws ResourceNotFoundException{
-        return _telefoneService.get(pessoaId);
+        return telefoneService.get(pessoaId);
     }
 
     @GetMapping("/{telefoneId")
     public Telefone getTelefone(@PathVariable UUID pessoaId, @PathVariable UUID telefoneId) throws ResourceNotFoundException {
-        return _telefoneService.get(pessoaId, telefoneId);
+        return telefoneService.get(pessoaId, telefoneId);
     }
 
     @PostMapping
     public Telefone create(@PathVariable UUID pessoaId, @RequestBody Telefone telefone) throws ResourceNotFoundException {
-        return _telefoneService.save(pessoaId, telefone);
+        return telefoneService.save(pessoaId, telefone);
     }
 
     @PutMapping("/{telefoneId}")
     public Telefone update(@PathVariable UUID pessoaId, @PathVariable UUID telefoneId, @RequestBody Telefone telefone) throws ResourceNotFoundException {
-        return _telefoneService.update(pessoaId, telefoneId, telefone);
+        return telefoneService.update(pessoaId, telefoneId, telefone);
     }
 
     @DeleteMapping("/{telefoneId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable UUID pessoaId, @PathVariable UUID telefoneId) throws ResourceNotFoundException {
-        _telefoneService.delete(pessoaId, telefoneId);
+        telefoneService.delete(pessoaId, telefoneId);
     }
 }
